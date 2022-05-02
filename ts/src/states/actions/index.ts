@@ -1,7 +1,5 @@
 import { ActionType } from "../action-types";
 
-
-
 export interface DepositAction {
   type: ActionType.DEPOSIT;
   payload: number;
@@ -16,4 +14,14 @@ export interface BankruptAction {
   type: ActionType.BANKRUPT;
 }
 
-export type Action = DepositAction | WithdrawAction | BankruptAction;
+export interface BankType {
+  value: number;
+  loading: boolean;
+}
+
+export interface Loading {
+  type: ActionType.LOADING;
+}
+
+export type Action = DepositAction | WithdrawAction | BankruptAction | Loading;
+

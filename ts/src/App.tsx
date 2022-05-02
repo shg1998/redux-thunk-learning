@@ -16,14 +16,14 @@ function App() {
   );
 
   //instead of using mapStateToProps in Class Components :)
-  const amount = useSelector((state:State) => state.bank);
+  const bankState = useSelector((state: State) => state.bank);
 
   return (
     <div className="App">
-      <h1>{amount}</h1>
-      <button onClick={()=> depositMoney(990)}>Deposit</button>
-      <button onClick={()=> withdrawMoney(500)}>Withdraw</button>
-      <button onClick={()=> bankruptMoney()}>Bankrupt</button>
+      {bankState?.loading ? <h1>Loading...</h1> : <h1>{bankState?.value}</h1>}
+      <button onClick={() => depositMoney(990)}>Deposit</button>
+      <button onClick={() => withdrawMoney(500)}>Withdraw</button>
+      <button onClick={() => bankruptMoney()}>Bankrupt</button>
     </div>
   );
 }
